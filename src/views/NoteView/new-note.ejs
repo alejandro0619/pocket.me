@@ -13,8 +13,9 @@
 		<div class="img">
 			<img src="../../public/img/FormNote/undraw_Creation_process_ukbh.svg">
 		</div>
-		<div class="login-content">
-			<form action="index.html">
+
+		 <div class="login-content">
+			<form action="/notes/add-note" method="POST">
 				<img src="../../public/img/FormNote/undraw_Notebook_tlkl.svg">
 				<h2 class="title">Agrega una nota</h2>
            		<div class="input-div one">
@@ -23,7 +24,7 @@
            		   </div>
            		   <div class="div">
            		   		<h5>Título:</h5>
-           		   		<input type="text" class="input">
+           		   		<input type="text" class="input" name="title" required>
            		   </div>
            		</div>
            		<div class="input-div pass">
@@ -32,11 +33,13 @@
            		   </div>
            		   <div class="div">
            		    	<h5>Nota:</h5>
-           		    	<input type="text" class="input">
+           		    	<input type="text" class="input" name="note" required>
             	   </div>
 				</div>
-				<input type="submit" class="btn" value="Login">
-    </div>
+				<button type="submit" class="btn" > Guardar</button>
+	</div> 
+
+
     <script type="text/javascript" src="../../public/js/main.js"></script>
 </body>
 </html>

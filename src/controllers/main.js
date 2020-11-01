@@ -11,22 +11,24 @@ const controllers = {
         res.send('works 2')
     },
     // ! Notes functionalities:
-    addNotes(req, res){
+    addNotes(req, res){ // * Notes Form:
         res.render('NoteView/new-note');
-    },
-    createNotes(req, res){
-        
-    },
-    renderNotes(req, res){
-        res.send('render notes')
-    },
-    editForm(req, res){
-        res.send('render form');
-    },
-    updateNotes(req, res){
 
     },
-    deleteNote(req, res){
+    createNotes(req, res){ // * route to receive Notes Form:
+        console.log(req.body)
+        res.send('Recibido')
+    },
+    renderNotes(req, res){ // * Render all notes:
+        res.send('render notes')
+    },
+    editForm(req, res){ // * Edit notes:
+        res.send('render form');
+    },
+    updateNotes(req, res){ // * route to receive edited notes:
+
+    },
+    deleteNote(req, res){ // * delete notes:
 
     }
     // ! Todo list functionalities:

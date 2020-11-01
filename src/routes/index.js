@@ -18,7 +18,7 @@ route.get('/',getHome );
 route.get('/signin', signIn);
 route.get('/signup', signUp);
 route.get('/notes/add',addNotes);
-route.post('/notes/add', createNotes);
+route.post('/notes/add-note', createNotes);
 route.get('/notes', renderNotes);
 route.get('/notes/edit/:id', editForm);
 route.put('/notes/edit/:id', updateNotes);
