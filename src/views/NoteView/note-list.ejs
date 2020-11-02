@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- ===== BOX ICONS ===== -->
+        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+        <!-- ===== CSS ===== -->
+        <link rel="stylesheet" href="../../public/css/note-list.css">
+
+        <!-- ==== TAILWIND   ==== -->
+        
+        <title>Pocket.me</title>
+    </head>
+    <body id="body-pd">
+        <header class="header" id="header">
+            <div class="header__toggle">
+                <i class='bx bx-menu' id="header-toggle"></i>
+            </div>
+
+            <div class="header__img">
+               <img src="../../public/img/FormUser/male_user.png" alt="Pocket.me logo">
+            </div>
+        </header>
+
+        <div class="l-navbar" id="nav-bar">
+            <nav class="nav">
+                <div>
+                    <a href="#" class="nav__logo">
+                        <i class='bx bx-layer nav__logo-icon'></i>
+                        <span class="nav__logo-name">Bienvenido</span>
+                    </a>
+
+                    <div class="nav__list">
+                        <a href="#" class="nav__link active">
+                        <i class='bx bx-list-ul' ></i>
+                            <span class="nav__name">Notas</span>
+                        </a>
+
+                        <a href="#" class="nav__link">
+                            <i class='bx bx-task' ></i>
+                            <span class="nav__name">Tareas</span>
+                        </a>
+                        
+                        <a href="#" class="nav__link">
+                            <i class='bx bx-link' ></i>
+                            <span class="nav__name">Links</span>
+                        </a>
+                    </div>
+                </div>
+
+                <a href="#" class="nav__link">
+                    <i class='bx bx-log-out nav__icon' ></i>
+                    <span class="nav__name">Inicio</span>
+                </a>
+            </nav>
+        </div>
+       
+<section class="card-list">
+
+    <% notesArray.forEach(item=>{ %>
+        <article class="card">
+            <header class="card-header">
+              <p class="date">Nov 18 2020</p>
+              <h1><%= item.title %></h2>
+            </header>
+            <h4 class="notes"><%=item.note%></h4>
+            <div class="card-author">
+              <a class="author-avatar" href="#">
+                <img src="../../public/img/FormUser/male_user.png" />
+              </a>
+              <svg class="half-circle" viewBox="0 0 106 57">
+                <path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path>
+              </svg>
+              <h3> SpaghettiCode</h3>
+            </div>
+            <div class="tags">
+              <a href="#">html</a>
+              <a href="#">css</a>
+            </div>
+          </article>
+    <% }) %>
+</section>
+
+        <!--===== MAIN JS =====-->
+        <script src="../../public/js/note-list.js"></script>
+    </body>
+</html>

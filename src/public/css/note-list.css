@@ -1,0 +1,346 @@
+
+/*===== VARIABLES CSS =====*/
+:root{
+    --header-height: 3rem;
+    --nav-width: 68px;
+  
+    /*===== Colors =====*/
+    --first-color:  #5A67D8;
+    --first-color-light: #998ec5;
+    --white-color: #F7F6FB;
+    
+    /*===== Font and typography =====*/
+    --body-font: 'Nunito', sans-serif;
+    --normal-font-size: 1rem;
+    
+    /*===== z index =====*/
+    --z-fixed: 100;
+  }
+  
+  /*===== BASE =====*/
+  *,::before,::after{
+    box-sizing: border-box;
+  }
+  
+  body{
+    position: relative;
+    margin: var(--header-height) 0 0 0;
+    padding: 0 1rem;
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    transition: .5s;
+  }
+  
+  a{
+    text-decoration: none;
+  }
+  
+  /*===== HEADER =====*/
+  .header{
+    width: 100%;
+    height: var(--header-height);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    background-color: var(--white-color);
+    z-index: var(--z-fixed);
+    transition: .5s;
+  }
+  
+  .header__toggle{
+    color: var(--first-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
+  .header__img{
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  
+  .header__img img{
+    width: 40px;
+  }
+  
+  /*===== NAV =====*/
+  .l-navbar{
+    position: fixed;
+    top: 0;
+    left: -30%;
+    width: var(--nav-width);
+    height: 100vh;
+    background-color: var(--first-color);
+    padding: .5rem 1rem 0 0;
+    transition: .5s;
+    z-index: var(--z-fixed);
+  }
+  
+  .nav{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+  }
+  
+  .nav__logo, .nav__link{
+    display: grid;
+    grid-template-columns: max-content max-content;
+    align-items: center;
+    column-gap: 1rem;
+    padding: .5rem 0 .5rem 1.5rem;
+  }
+  
+  .nav__logo{
+    margin-bottom: 2rem;
+  }
+  
+  .nav__logo-icon{
+    font-size: 1.25rem;
+    color: var(--white-color);
+  }
+  
+  .nav__logo-name{
+    color: var(--white-color);
+    font-weight: 700;
+  }
+  
+  .nav__link{
+    position: relative;
+    color: var(--first-color-light);
+    margin-bottom: 1.5rem;
+    transition: .3s;
+  }
+  
+  .nav__link:hover{
+    color: var(--white-color);
+  }
+  
+  .nav__icon{
+    font-size: 1.25rem;
+  }
+  
+  /*Show navbar movil*/
+  .show{
+    left: 0;
+  }
+  
+  /*Add padding body movil*/
+  .body-pd{
+    padding-left: calc(var(--nav-width) + 1rem);
+  }
+  
+  /*Active links*/
+  .active{
+    color: var(--white-color);
+  }
+  
+  .active::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 2px;
+    height: 32px;
+    background-color: var(--white-color);
+  }
+  
+  /* ===== MEDIA QUERIES=====*/
+  @media screen and (min-width: 768px){
+    body{
+      margin: calc(var(--header-height) + 1rem) 0 0 0;
+      padding-left: calc(var(--nav-width) + 2rem);
+    }
+  
+    .header{
+      height: calc(var(--header-height) + 1rem);
+      padding: 0 2rem 0 calc(var(--nav-width) + 2rem);
+    }
+  
+    .header__img{
+      width: 40px;
+      height: 40px;
+    }
+  
+    .header__img img{
+      width: 45px;
+    }
+  
+    .l-navbar{
+      left: 0;
+      padding: 1rem 1rem 0 0;
+    }
+    
+    /*Show navbar desktop*/
+    .show{
+      width: calc(var(--nav-width) + 156px);
+    }
+  
+    /*Add padding body desktop*/
+    .body-pd{
+      padding-left: calc(var(--nav-width) + 188px);
+    }
+  }
+/*Cards*/
+.notes{
+  font-size: medium;
+  padding-bottom: 20px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.card-list {
+  display: flex;
+  padding: 3rem;
+  overflow-x: scroll;
+}
+.card:focus-within~.card, .card:hover~.card {
+  transform: translateX(120px);
+}
+.card-list::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+
+.card {
+  height: 350px;
+  width: 400px;
+  min-width: 250px;
+  padding: 1.5rem;
+  border-radius: 16px;
+  background:linear-gradient(70deg, #a3bffa, #5a67d8);
+  display: flex;
+  flex-direction: column;
+  transition: .2s;
+  margin: 0;
+  scroll-snap-align: start;
+  clear: both;
+  position: relative;
+}
+
+.card:hover {
+  transform: translateY(-1rem);
+}
+
+.card:not(:first-child) {
+  margin-left: -130px;
+}
+
+
+.card-header {
+  margin-bottom: auto;
+}
+
+.card-header p {
+  font-size: 14px;
+  margin: 0 0 1rem;
+  color: #7a7a8c;
+}
+
+.card-header h1 {
+  font-size: 20px;
+  text-align: center;
+  margin: 1rem;
+  text-decoration: none;
+  color: inherit;
+  border: 0;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.card-header:hover {
+  text-shadow: none;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.card-author {
+
+  display: grid;
+  grid-template-columns: 75px 1fr;
+  align-items: center;
+  position: relative;
+}
+
+.author-avatar {
+  grid-area: auto;
+  align-self: start;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.author-avatar img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: block;
+  overflow: hidden;
+  margin: 16px 10px;
+}
+
+.author-name {
+  grid-area: auto;
+  box-sizing: border-box;
+}
+
+.author-name-prefix {
+  font-style: normal;
+  font-weight: 700;
+  color: #7a7a8c;
+}
+
+.half-circle {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 40px;
+  fill: none;
+  stroke: #5a67d8;
+  stroke-width: 8;
+  stroke-linecap: round;
+  pointer-events: none;
+}
+
+.tags {
+  line-height: 2;
+  margin-bottom: 0;
+}
+
+.tags a {
+  font-style: normal;
+  font-size: .5rem;
+  color: #000;
+  text-transform: uppercase;
+  font-size: .66rem;
+  border: 3px solid #28242f;
+  border-radius: 2rem;
+  padding: .2rem .85rem .25rem;
+  position: relative;
+}
+
+.tags a:hover {
+  background: linear-gradient(90deg,#ff0280,#e52e71);
+  text-shadow: none;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-box-decoration-break: clone;
+  background-clip: text;
+  border-color: white;
+}
+
+.date{
+  font-weight: bolder;
+  color: #000
+}
