@@ -5,8 +5,11 @@ const morgan = require('morgan');
 const routes = require('../routes/index');
 const methodOverride = require('method-override');
 const session = require('express-session');
+const passport = require('passport');
+
 
 module.exports = app =>{
+    require('../config/passport');
     // Settings:
     app.set('port', process.env.PORT || 3000);
     app.set('views', path.join(__dirname, '../views'));
@@ -22,6 +25,9 @@ module.exports = app =>{
         resave: true,
         saveUninitialized: true
     }));
+    
+    app.use(passport.initialize());
+    app.use(passport.session());
 
 
     //Routes:

@@ -1,3 +1,5 @@
+const passport = require('passport');
+
 const {
     noteModel,
     userModel
@@ -16,9 +18,10 @@ const controllers = {
     renderSignUp(req, res) {
         res.render('UserView/signup');
     },
-    signin(req, res) {
-        
-    },
+    signin : passport.authenticate('local',{
+        failureRedirect: '/signin',
+        successRedirect: '/notes',
+    }),
     async signup(req, res) {
         let {name, email, password} = req.body;
         let emailUser = await userModel.findOne({email: email});
@@ -31,7 +34,7 @@ const controllers = {
                 email: email,
                 password: password
             });
-            newUser.password = await newUser.encryptPassword(password)
+            newUser.password = await newUser.encryptPassword(password);
             await newUser.save();
             res.redirect('/notes');
         };
@@ -39,7 +42,8 @@ const controllers = {
 
     },
     logOut(req, res) {
-        res.send('LogOut');
+        req.logOut();
+        res.redirect('/signin');
     },
 
     // ! Notes functionalities:
@@ -105,4 +109,5 @@ const controllers = {
     // ! links functionalities:
 
 };
+
 module.exports = controllers;

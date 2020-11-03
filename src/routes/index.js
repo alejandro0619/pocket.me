@@ -1,5 +1,6 @@
 const express = require('express');
 const route = express.Router();
+const passport = require('passport')
 const {
     getHome,
     renderSignIn,
@@ -11,8 +12,11 @@ const {
     updateNotes,
     deleteNote,
     signup,
-    signin
+    signin,
+    logOut
 } = require('../controllers/main');
+
+
 
 /*
 ! Home route>
@@ -30,11 +34,12 @@ route.get('/signin', renderSignIn);
 route.post('/signin', signin);
 route.get('/signup', renderSignUp);
 route.post('/signup', signup);
-route.get('/notes/add', addNotes);
+route.get('/notes/add',addNotes);
 route.post('/notes/add-note', createNotes);
-route.get('/notes', renderNotes);
+route.get('/notes',renderNotes);
 route.get('/notes/edit/:id', editForm);
 route.put('/notes/edit/:id', updateNotes);
 route.delete('/notes/delete/:id', deleteNote);
+route.get('/logout', logOut)
 
 module.exports = route;
