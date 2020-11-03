@@ -5,7 +5,8 @@ const MONGODB_URI = POCKETME_APP_MONGODB_URI;
 
 mongoose.connect(MONGODB_URI, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useCreateIndex: true
 })
     .then(db => console.log('DB is connected'))
-    .catch(err => console.error(err))
+    .catch(err => console.error(err));

@@ -4,7 +4,6 @@ const path = require('path');
 const morgan = require('morgan');
 const routes = require('../routes/index');
 const methodOverride = require('method-override');
-const flash = require('connect-flash');
 const session = require('express-session');
 
 module.exports = app =>{
@@ -23,13 +22,7 @@ module.exports = app =>{
         resave: true,
         saveUninitialized: true
     }));
-    app.use(flash());
 
-    // Global variables:
-    app.use((req ,res, next)=>{
-        res.locals.success_msg = req.flash('success msg');
-        next();
-    });
 
     //Routes:
     app.use(routes);

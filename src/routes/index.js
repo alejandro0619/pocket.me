@@ -1,9 +1,20 @@
 const express = require('express');
 const route = express.Router();
-const { getHome, signIn, signUp, addNotes, createNotes, renderNotes, editForm, updateNotes, deleteNote }
- = require('../controllers/main');
+const {
+    getHome,
+    renderSignIn,
+    renderSignUp,
+    addNotes,
+    createNotes,
+    renderNotes,
+    editForm,
+    updateNotes,
+    deleteNote,
+    signup,
+    signin
+} = require('../controllers/main');
 
- /*
+/*
 ! Home route>
 ! signin>
 ! signup>
@@ -14,10 +25,12 @@ const { getHome, signIn, signUp, addNotes, createNotes, renderNotes, editForm, u
 ! send edit notes form>
 */
 
-route.get('/',getHome );
-route.get('/signin', signIn);
-route.get('/signup', signUp);
-route.get('/notes/add',addNotes);
+route.get('/', getHome);
+route.get('/signin', renderSignIn);
+route.post('/signin', signin);
+route.get('/signup', renderSignUp);
+route.post('/signup', signup);
+route.get('/notes/add', addNotes);
 route.post('/notes/add-note', createNotes);
 route.get('/notes', renderNotes);
 route.get('/notes/edit/:id', editForm);
