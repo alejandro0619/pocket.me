@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap');
 /*===== VARIABLES CSS =====*/
 :root{
     --header-height: 3rem;
@@ -23,12 +23,8 @@
   }
   
   body{
-    position: relative;
-    margin: var(--header-height) 0 0 0;
-    padding: 0 1rem;
-    font-family: var(--body-font);
-    font-size: var(--normal-font-size);
-    transition: .5s;
+    background-image: url(../../public/img/bakcground/user\ back.jpg);
+  font-family: 'Rubik', sans-serif;
   }
   
   a{
@@ -57,14 +53,7 @@
     cursor: pointer;
   }
   
-  .header__img{
-    width: 35px;
-    height: 35px;
-    display: flex;
-    justify-content: center;
-    border-radius: 50%;
-    overflow: hidden;
-  }
+ 
   
   .header__img img{
     width: 40px;
@@ -200,7 +189,7 @@ a {
 
 .card-list {
   display: flex;
-  padding: 3rem;
+  padding: 4rem;
   overflow-x: scroll;
 }
 .card:focus-within~.card, .card:hover~.card {
@@ -318,7 +307,7 @@ a {
   margin-bottom: 0;
 }
 
-.tags a {
+.tags .button {
   font-style: normal;
   font-size: .5rem;
   color: #000;
@@ -330,7 +319,7 @@ a {
   position: relative;
 }
 
-.tags a:hover {
+.tags .button:hover {
   background: linear-gradient(90deg,#ff0280,#e52e71);
   text-shadow: none;
   -webkit-text-fill-color: transparent;
@@ -343,4 +332,11 @@ a {
 .date{
   font-weight: bolder;
   color: #000
+}
+
+#Welcome{
+  padding-top: 40px;
+  padding-bottom: 40px;
+  font-size: large;
+  font-weight: bolder;
 }

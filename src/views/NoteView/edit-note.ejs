@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pocket.me </title>
+	<link rel="stylesheet" type="text/css" href="../../public/css/newNote.css">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+	<div class="container">
+		<div class="img">
+			<img src="../../public/img/FormNote/undraw_profile_details_f8b7.svg">
+		</div>
+
+		 <div class="login-content">
+			<form action="/notes/add-note" method="POST">
+				<img src="../../public/img/FormNote/undraw_Notebook_tlkl.svg">
+				<h2 class="title">Edita la nota:</h2>
+           		<div class="input-div one">
+           		   <div class="i">
+           		   		<i class="fas fa-pen-square"></i>
+           		   </div>
+           		   <div class="div">
+           		   		<h5>Título:</h5>
+           		   		<input type="text" class="input" name="title" required>
+           		   </div>
+           		</div>
+           		<div class="input-div pass">
+           		   <div class="i"> 
+           		    	<i class="fas fa-edit"></i>
+           		   </div>
+           		   <div class="div">
+           		    	<h5>Nota:</h5>
+           		    	<input type="text" class="input" name="note" required>
+            	   </div>
+				</div>
+				<button type="submit" class="btn" > Guardar</button>
+	</div> 
+
+
+    <script type="text/javascript" src="../../public/js/main.js"></script>
+</body>
+</html>

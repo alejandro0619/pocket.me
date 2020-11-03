@@ -11,6 +11,9 @@
         <link rel="stylesheet" href="../../public/css/note-list.css">
 
         <!-- ==== TAILWIND   ==== -->
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+        <!-- ==== FONT AWESOME   ==== -->
+        <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap" rel="stylesheet">
         
         <title>Pocket.me</title>
     </head>
@@ -20,9 +23,7 @@
                 <i class='bx bx-menu' id="header-toggle"></i>
             </div>
 
-            <div class="header__img">
-               <img src="../../public/img/FormUser/male_user.png" alt="Pocket.me logo">
-            </div>
+            
         </header>
 
         <div class="l-navbar" id="nav-bar">
@@ -57,7 +58,7 @@
                 </a>
             </nav>
         </div>
-       
+       <hr id="Welcome" style="padding-bottom: 40px; padding-top: 40px; "></hr>
 <section class="card-list">
 
     <% notesArray.forEach(item=>{ %>
@@ -77,12 +78,21 @@
               <h3> SpaghettiCode</h3>
             </div>
             <div class="tags">
-              <a href="#">html</a>
-              <a href="#">css</a>
+              <form action="/notes/delete/<%= item.id %>?_method=DELETE" method="POST">
+                <input type="hidden" name="_method" value="DELETE">
+                <button class="button"> <a href="/notes/edit/<%= item.id %>"> Editar</a></button>
+                <button class="button" type="submit"> Borrar</button>
+              </form>
             </div>
           </article>
     <% }) %>
 </section>
+
+<span class="inline-flex items-center shadow-sm">
+    <a href="/notes/add" class="whitespace-no-wrap inline-flex items-center justify-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150">
+      Agregar una nueva nota
+    </a>
+  </span>
 
         <!--===== MAIN JS =====-->
         <script src="../../public/js/note-list.js"></script>

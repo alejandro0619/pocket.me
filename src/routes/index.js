@@ -22,6 +22,6 @@ route.post('/notes/add-note', createNotes);
 route.get('/notes', renderNotes);
 route.get('/notes/edit/:id', editForm);
 route.put('/notes/edit/:id', updateNotes);
-route.delete('/notes/delet/:id', deleteNote);
+route.delete('/notes/delete/:id', deleteNote);
 
 module.exports = route;
