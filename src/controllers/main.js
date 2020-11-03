@@ -28,6 +28,7 @@ const controllers = {
             note: note
         });
         await newNote.save();
+        req.flash( 'succes msg','Note added sucessfully');
         res.redirect('/notes');
     },
 
@@ -36,17 +37,24 @@ const controllers = {
         res.render('NoteView/note-list', { notesArray });
     },
 
-    editForm(req, res) { // * Edit notes:
-        res.render('NoteView/edit-note');
+    async editForm(req, res) { // * Edit notes:
+        let { id } = req.params;
+        let note = await noteModel.findById(id);
+        res.render('NoteView/edit-note', { note: note });
     },
 
-    updateNotes(req, res) { // * route to receive edited notes:
-
+    async updateNotes(req, res) { // * route to receive edited notes:
+        let { id } = req.params;
+        let { title, note } = req.body;
+       await noteModel.findByIdAndUpdate(id, { title: title, note: note});
+       req.flash('success msg', 'notes updated successfully');
+        res.redirect('/notes');
     },
 
     async deleteNote(req, res) { // * delete notes:
         let { id } = req.params;
         await noteModel.findByIdAndDelete(id);
+        req.flash('success msg', 'notes deleted successfully');
         res.redirect('/notes');
     }
     // ! Todo list functionalities:
