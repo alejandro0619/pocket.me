@@ -16,7 +16,12 @@ const {
     logOut
 } = require('../controllers/main');
 
-
+function authenticated(req, res,next){
+    if(req.isAuthenticated()){
+        return next()
+    }
+    res.redirect('/')
+}
 
 /*
 ! Home route>
@@ -34,12 +39,12 @@ route.get('/signin', renderSignIn);
 route.post('/signin', signin);
 route.get('/signup', renderSignUp);
 route.post('/signup', signup);
-route.get('/notes/add',addNotes);
+route.get('/notes/add', authenticated,addNotes);
 route.post('/notes/add-note', createNotes);
-route.get('/notes',renderNotes);
+route.get('/notes',authenticated,renderNotes);
 route.get('/notes/edit/:id', editForm);
 route.put('/notes/edit/:id', updateNotes);
 route.delete('/notes/delete/:id', deleteNote);
-route.get('/logout', logOut)
+route.get('/logout',authenticated, logOut)
 
 module.exports = route;

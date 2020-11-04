@@ -57,30 +57,39 @@ const controllers = {
             title,
             note
         } = req.body;
-
+        let { _id } = req.user;
         // * Save the notes in mongodb
         const newNote = new noteModel({
             title: title,
-            note: note
+            note: note,
+            user: _id,
         });
         await newNote.save();
         res.redirect('/notes');
     },
 
     async renderNotes(req, res) { // * Render all notes:
-        const notesArray = await noteModel.find();
+        const notesArray = await noteModel.find({
+            user: req.user._id
+        }).sort({createdAt: 'desc'});
+        let nickname =  req.user.name;
+        console.log(nickname)
         res.render('NoteView/note-list', {
-            notesArray
+            notesArray,
+            nickname
         });
     },
 
     async editForm(req, res) { // * Edit notes:
         let { id } = req.params;
-
         let note = await noteModel.findById(id);
-        res.render('NoteView/edit-note', {
-            note: note
-        });
+        if(note.user != req.user._id){
+            res.redirect('/notes')
+        } else{
+            res.render('NoteView/edit-note', {
+                note: note
+            });
+        }
     },
 
     async updateNotes(req, res) { // * route to receive edited notes:

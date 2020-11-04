@@ -31,7 +31,7 @@
                 <div>
                     <a href="#" class="nav__logo">
                         <i class='bx bx-layer nav__logo-icon'></i>
-                        <span class="nav__logo-name">Pocket.me</span>
+                        <span class="nav__logo-name"> <%= nickname %></span>
                     </a>
 
                     <div class="nav__list">
@@ -75,7 +75,7 @@
               <svg class="half-circle" viewBox="0 0 106 57">
                 <path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path>
               </svg>
-              <h3> SpaghettiCode</h3>
+              <h3> <%= nickname %></h3>
             </div>
             <div class="tags">
               <form action="/notes/delete/<%= item.id %>?_method=DELETE" method="POST">
