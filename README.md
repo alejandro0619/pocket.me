@@ -22,7 +22,7 @@ Notes:
 
 ---
 
-### **You can found a full english tutorial about how I created this project from scratch in my medium account, very soon.**
+### **You can find a full english tutorial about how I created this project from scratch in my medium account, very soon.**
 
 ---
 
